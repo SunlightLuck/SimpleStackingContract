@@ -13,7 +13,5 @@ describe("Greeter", function () {
     await stackingContract.stackTokens(tokenContract, 10);
 
     expect(await stackingContract.timeStampSet()).to.be.equal(true);
-
-    const setGreetingTx = await greeter.setGreeting("Hola, mundo!");
   });
 });
