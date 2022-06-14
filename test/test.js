@@ -10,13 +10,10 @@ describe("Greeter", function () {
     await tokenContract.deployed();
     await stackingContract.deployed();
 
-    expect(await greeter.greet()).to.equal("Hello, world!");
+    await stackingContract.stackTokens(tokenContract, 10);
+
+    expect(await stackingContract.timeStampSet()).to.be.equal(true);
 
     const setGreetingTx = await greeter.setGreeting("Hola, mundo!");
-
-    // wait until the transaction is mined
-    await setGreetingTx.wait();
-
-    expect(await greeter.greet()).to.equal("Hola, mundo!");
   });
 });

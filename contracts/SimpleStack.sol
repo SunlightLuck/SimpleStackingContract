@@ -35,6 +35,14 @@ contract SimpleStackingContract is ReentrancyGuard, Ownable {
         _;
     }
 
+    function timeStampSet() external view returns (bool) {
+        return _timeStampSet;
+    }
+
+    function balanceOf(address owner) external view returns (uint256) {
+        return _balance[owner];
+    }
+
     function setTimestamp(uint256 period) public onlyOwner timeStampeNotSet {
         _timeStampSet = true;
         _initialTimestamp = block.timestamp;
